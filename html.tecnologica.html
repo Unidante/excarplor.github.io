@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+ 
+        <title> EXCARPLOR-UTP</title>
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+            <link rel="stylesheet" href="estilos.css">
+            <link rel="stylesheet" href="styles.css">
+            <link rel="stylesheet" href="fat.pro.css">
+            <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    </head>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f0f0;
+    }
+
+    .carousel-container {
+      position: relative;
+      max-width: 1000px;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      height: 500px;
+    }
+
+    .carousel-slide {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 400%; /* 4 sedes */
+      height: 100%;
+    }
+
+    .carousel-slide .map-container {
+      width: 100%;
+      height: 100%;
+      flex-shrink: 0;
+    }
+
+    .map {
+      width: 100%;
+      height: 100%;
+    }
+
+    .carousel-prev,
+    .carousel-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 50%;
+      z-index: 10;
+    }
+
+    .carousel-prev {
+      left: 10px;
+    }
+
+    .carousel-next {
+      right: 10px;
+    }
+
+    .popup-img {
+      width: 100px;
+      height: auto;
+      display: block;
+      margin-top: 5px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body data-university-id="utp" class="page-entry-animation">
+  <aside class="sidebar">
+            <div class="logo"></div>
+            <nav>
+                <a href="home_dreamstech.html" class="active"><i class='bx bx-home'></i>Inicio </a>
+                <a href="universidades.html"><i class='bx bx-building'></i> Universidades</a>
+                <a href="mentores.html"><i class='bx bx-message-rounded-dots'></i>Asesores </a>
+                <a href="preguntas frecuentes.html"><i class='bx bx-help-circle'></i> Preguntas </a>
+                <a href="cuenta.html"><i class='bx bx-user-circle'></i> Cuenta </a>
+            </nav>
+        </aside>
+
+    <main>
+        <section class="university-header">
+            <div class="back-button-container">
+                <a href="universidades.html" class="back-button">Regresar</a>
+            </div>
+            <img src="https://utp.ac.pa/sites/default/files/documentos/2024/imagen/6_logo_utp_-_rgb_oficial.png" alt="Logo de la Universidad Tecnologica de Panamá" class="university-logo">
+            <h1 class="university-name">Universidad Tecnologica de Panamá</h1>
+            <p class="university-description">La Universidad Tecnológica de Panamá (UTP) es una institución pública de educación superior fundada en 1981, con la misión de impulsar el desarrollo científico, tecnológico y económico del país. Reconocida por su excelencia académica y su enfoque en la innovación, la UTP forma profesionales altamente capacitados y comprometidos con el progreso sostenible de la sociedad panameña. Su labor se basa en los principios de calidad, responsabilidad social y liderazgo en ingeniería, ciencias aplicadas y tecnología.</p>
+        </section>
+
+
+<section class="carousel-container">
+  <div class="carousel-slide" id="carousel-slide">
+    <div class="map-container"><div id="map-panama" class="map"></div></div>
+    <div class="map-container"><div id="map-azuero" class="map"></div></div>
+    <div class="map-container"><div id="map-cocle" class="map"></div></div>
+    <div class="map-container"><div id="map-veraguas" class="map"></div></div>
+  </div>
+  <button class="carousel-prev" id="prev">&#10094;</button>
+  <button class="carousel-next" id="next">&#10095;</button>
+</section>
+
+        <h2 style="text-align: center; margin-top: 40px; font-size: 2.5em; color: var(--main-color);">Facultades y Programas</h2>
+         <div class="acordeon" id="careers-accordion">
+            <div class="loading-indicator" style="display: block; text-align: center; padding: 20px; color: var(--text-color);">Cargando carreras...</div>
+        </div>
+    </main>
+ <div>
+            <h1 id="tituloInteractivo">Coméntanos que te parecio...</h1>
+        </div>
+        <div class="container">
+            <h2>¿Qué te parece nuestro servicio?</h2>
+        
+            <!-- Formulario para comentario y valoración -->
+            <form id="comentarioForm">
+            <div id="valoracionEstrellas" class="estrellas">
+                <i data-valor="1" class="fas fa-star"></i>
+                <i data-valor="2" class="fas fa-star"></i>
+                <i data-valor="3" class="fas fa-star"></i>
+                <i data-valor="4" class="fas fa-star"></i>
+                <i data-valor="5" class="fas fa-star"></i>
+            </div>
+            <label for="comentario">Tu comentario:</label>
+            <textarea id="comentario" rows="4" placeholder="Escribe tu opinión..."></textarea>
+            <button type="submit">Enviar</button>
+            </form>
+        <h3 style="text-align: center;">Reseñas Recientes</h3>
+            <!-- Título de las reseñas -->
+            <div id="contenedorResenas">
+            <!-- Las reseñas se irán agregando aquí -->
+            </div>
+        </div>
+
+  <footer class="footer">
+  <p class="p1">Dream Tech</p>
+                    <h4 class="algo">Síguenos en</h4>
+                    <ul class="social-icon">
+                        <a href="no existe">
+                            <li class="icon-element">
+                            <i class='bx bxl-facebook-circle'></i>
+                        </li>
+                        </a>
+                        <a href="https://www.instagram.com/dreamstech_pa/">
+                        <li class="icon-element">
+                            <i class='bx bxl-instagram'></i>  
+                        </li>    
+                        </a>
+                        <a href="https://www.linkedin.com/in/dreams-tech-0a2898370/">               
+                        <li class="icon-element">
+                            <i class='bx bxl-linkedin'></i>
+                        </li>
+                        </a>
+                    </ul>
+                    <ul class="elemento">
+                        <li class="elemento-y">
+                            <a href="" class="elemento-x">Sobre nosotros</a>
+                        </li>
+                        <li class="elemento-y">
+                            <a href="#" class="elemento-x">Política de Privacidad</a>
+                        </li>
+                        <li class="elemento-y">
+                            <a href="#" class="elemento-x">Términos de Servicio</a>
+                        </li>
+                    </ul>
+  </footer>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  const slide = document.getElementById('carousel-slide');
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
+  let counter = 0;
+  const totalSlides = slide.children.length;
+
+  const sedes = [
+    {
+      id: 'map-panama',
+      coords: [9.022084156718952, -79.53119393671548],
+      popup: `
+        Sede Panamá<br>
+        <img src="IMAGENES_U/UPT_PANAMA.webp" alt="Sede Panamá" style="width:250px; height:auto;">
+      `
+    },
+    {
+      id: 'map-azuero',
+      coords: [7.937525911365655, -80.38056030818727],
+      popup: `
+        Sede Azuero<br>
+        <img src="IMAGENES_U/UTP_AZUERO.webp" alt="Sede Azuero" style="width:250px; height:auto;">
+      `
+    },
+    {
+      id: 'map-cocle',
+      coords: [8.507160931302131, -80.26764086687966],
+      popup: `
+        Sede Coclé<br>
+        <img src="IMAGENES_U/UTP_COCLE.webp" alt="Sede Coclé" style="width:250px; height:auto;">
+      `
+    },
+    {
+      id: 'map-veraguas',
+      coords: [8.074476793669376, -80.93424952370025],
+      popup: `
+        Sede Veraguas<br>
+        <img src="IMAGENES_U/UTP_VERAGUAS.jpg" alt="Sede Veraguas" style="width:250px; height:auto;">
+      `
+    }
+  ];
+
+  function initMaps() {
+    sedes.forEach(sede => {
+      const map = L.map(sede.id).setView(sede.coords, 15);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(map);
+
+      L.marker(sede.coords)
+        .addTo(map)
+        .bindPopup(sede.popup)
+        .openPopup();
+    });
+  }
+
+  function updateCarousel() {
+    const percentage = -(100 * counter);
+    slide.style.transform = `translateX(${percentage}%)`;
+  }
+
+  prevBtn.addEventListener('click', () => {
+    counter = (counter - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    counter = (counter + 1) % totalSlides;
+    updateCarousel();
+  });
+
+  // Inicializar todo
+  initMaps();
+  updateCarousel();
+</script>
+
+
+
+</script>
+
+
+  <script type="module" src="interaccion.js"></script>
+  <script type="module" src="script.js"></script>
+  <script type="module" src="university-data-loader.js"></script>
+</body>
+</html>

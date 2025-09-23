@@ -1,0 +1,104 @@
+ #tituloInteractivo {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #4682B4;
+  border-right: 2px solid #5ca2a2;
+  display: inline-block;
+  padding-right: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: escribir 3s steps(30) forwards;
+}
+ 
+body {
+    cursor: url('tortugita.png'), auto;
+}
+@keyframes escribir {
+  100% {
+    width: 100%;
+  }
+}
+ 
+/* Estilos generales */
+
+ 
+
+ 
+.container {
+  width: 80%;
+  margin: 20px auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+ 
+form label {
+  display: block;
+  margin: 10px 0 5px;
+  color: #555;
+}
+ 
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #001e1f;
+  border-radius: 4px;
+}
+ 
+form button {
+  background-color: #052b28;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+ 
+form button:hover {
+  background-color: #84cbd8;
+}
+ 
+/* Estilo para las estrellas */
+.estrellas {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+ 
+.estrellas i {
+  font-size: 2rem;
+  cursor: pointer;
+  color: #ccc;
+  transition: transform 0.2s, color 0.3s ease; /* Transición de color y tamaño */
+}
+ 
+.estrellas i:hover {
+  transform: scale(1.2);  /* Aumenta ligeramente el tamaño */
+  color: #ffcc00; /* Cambia el color al pasar el cursor */
+}
+ 
+/* Estrellas seleccionadas */
+.estrellas i.seleccionada {
+  color: #ffcc00;
+}
+ 
+/* Reseñas enviadas */
+.resena {
+  background-color: #f9f9f9;
+  padding: 15px;
+  margin: 10px 0;
+  border-left: 5px solid #5ca2a2;
+  border-radius: 4px;
+}
+ 
+.resena p {
+  margin: 5px 0;
+  color: #555;
+}
+ 
+.resena .estrellas i {
+  color: #ffcc00;
+}

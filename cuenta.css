@@ -1,0 +1,530 @@
+body {
+                display: flex;
+                flex-direction: column; /* Ensures content stacks vertically */
+                min-height: 100vh; /* Takes at least 100% of viewport height */
+                margin: 0;
+                background-color: var(--bg-color); /* Uses background color variable */
+                color: var(--text-color); /* Uses text color variable */
+            }
+
+            .main-content {
+                flex-grow: 1; /* Allows main content to take remaining space */
+                display: flex;
+                flex-direction: column;
+                align-items: center; /* Centers children horizontally */
+                width: 100%; /* Make it span full width */
+                padding: 20px; /* Add some padding around the edges */
+                margin: 0; /* Remove auto margins to allow full width */
+                background-color: var(--second-bg-color); /* Keep the background color */
+                border-radius: 0; /* Remove border-radius to fill corners */
+                box-shadow: none; /* Remove box-shadow for a seamless full-page look */
+            }
+
+            .page-section { /* Nuevo estilo para secciones que ocupan todo el ancho */
+                width: 100%;
+                max-width: 1200px; /* Establece un ancho máximo para el contenido dentro de la sección */
+                padding: 30px;
+                background-color: var(--second-bg-color);
+                border-radius: 10px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+                margin-bottom: 20px;
+                text-align: center;
+                margin-left: auto; /* Centra la sección dentro del .main-content */
+                margin-right: auto; /* Centra la sección dentro del .main-content */
+            }
+
+            .profile-section, .advisor-application-section, .recent-activity-section, .notifications-section, .privacy-settings-section {
+                /* Usar la nueva clase .page-section para la mayoría de las secciones */
+                /* En CSS real, @extend no existe, se copian las propiedades */
+                width: 100%;
+                padding: 30px;
+                background-color: var(--second-bg-color);
+                border-radius: 10px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+                margin-bottom: 20px;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+
+            .profile-section h2, .advisor-application-section h2, .recent-activity-section h2, .notifications-section h2, .privacy-settings-section h2 {
+                color: var(--main-color);
+                margin-bottom: 25px;
+                font-size: 2.2em;
+            }
+
+            .profile-info {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                text-align: left;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .profile-info p {
+                font-size: 1.1em;
+                color: var(--text-color);
+            }
+
+            .profile-info strong {
+                color: var(--dark-blue);
+            }
+
+            .profile-avatar {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 20px;
+                border: 3px solid var(--main-color);
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .advisor-form, .edit-profile-form, .register-form-fields { /* Estilos para formularios generales */
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                max-width: 500px;
+                margin: 0 auto;
+                text-align: left;
+            }
+
+            .advisor-form label, .edit-profile-form label, .register-form-fields label {
+                font-weight: 600;
+                color: var(--text-color);
+                margin-bottom: 5px;
+            }
+
+            .advisor-form input[type="text"],
+            .advisor-form input[type="email"],
+            .advisor-form textarea,
+            .edit-profile-form input[type="text"],
+            .edit-profile-form input[type="email"],
+            .register-form-fields input[type="text"],
+            .register-form-fields input[type="email"],
+            .register-form-fields input[type="password"] {
+                width: 100%;
+                padding: 12px;
+                border: 1px solid var(--border-color);
+                border-radius: 5px;
+                font-size: 1em;
+                color: var(--text-color);
+                background-color: var(--bg-color);
+                transition: border-color 0.3s ease;
+            }
+
+            .advisor-form input[type="text"]:focus,
+            .advisor-form input[type="email"]:focus,
+            .advisor-form textarea:focus,
+            .edit-profile-form input[type="text"]:focus,
+            .edit-profile-form input[type="email"]:focus,
+            .register-form-fields input[type="text"]:focus,
+            .register-form-fields input[type="email"]:focus,
+            .register-form-fields input[type="password"]:focus {
+                border-color: var(--main-color);
+                box-shadow: 0 0 8px rgba(70, 130, 180, 0.3);
+            }
+
+            .btn1, .form-button { /* Botones generales */
+                background: linear-gradient(45deg, var(--main-color), var(--dark-blue)); /* Degradado */
+                color: white;
+                padding: 12px 25px;
+                border-radius: 25px; /* Más redondeado */
+                font-size: 1.1em;
+                font-weight: 600; /* Más peso */
+                cursor: pointer;
+                transition: all 0.3s ease; /* Transición para todo */
+                margin-top: 15px;
+                border: none;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+                letter-spacing: 0.5px; /* Espaciado de letras */
+            }
+
+            .btn1:hover, .form-button:hover {
+                background: linear-gradient(45deg, var(--hover-color), var(--main-color)); /* Cambio de degradado */
+                transform: translateY(-3px) scale(1.02); /* Efecto 3D y ligero aumento */
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+            }
+
+            /* Styles for the login/registration container */
+            .auth-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh; /* Adjusts to viewport height */
+                background-color: var(--light-blue-bg);
+                width: 100%; /* Ensure it takes full width when active */
+            }
+
+            .auth-box {
+                position: relative;
+                width: 400px;
+                background-color: var(--main-color);
+                backdrop-filter: blur(5px);
+                border: 2px solid rgba(255, 255, 255, 0.5);
+                border-radius: 20px;
+                height: auto;
+                padding: 40px 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            }
+
+            .auth-box h2 {
+                font-size: 2.3rem;
+                color: white;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .input-group {
+                position: relative;
+                margin: 25px 0;
+                width: 300px;
+                border-bottom: 2px solid #ffff;
+            }
+
+            .input-group label {
+                position: absolute;
+                top: 50%;
+                left: 5px;
+                transform: translateY(-50%);
+                color: #ffff;
+                font-size: 1rem;
+                pointer-events: none;
+                transition: 0.5s ease;
+                font-weight: bold;
+            }
+
+            .input-group input:focus~label,
+            .input-group input:valid~label {
+                top: -5px;
+                font-size: 0.85rem;
+                color: white;
+            }
+
+            .input-group input {
+                width: 100%;
+                height: 50px;
+                background-color: transparent;
+                border: none;
+                outline: none;
+                font-size: 1rem;
+                padding: 0 0 5px 30px;
+                color: #ffff;
+            }
+
+            .input-group i {
+                position: absolute;
+                color: #ffff;
+                font-size: 1.4rem;
+                top: 15px;
+                left: 0px;
+            }
+
+            .forgot-remember {
+                margin: -15px 0 15px;
+                font-size: 0.9em;
+                color: #ffff;
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                padding: 0 30px;
+            }
+
+            .forgot-remember label {
+                display: flex;
+                align-items: center;
+                font-size: 0.9em;
+            }
+
+            .forgot-remember label input {
+                margin-right: 5px;
+                width: auto;
+                height: auto;
+                padding: 0;
+            }
+
+            .forgot-remember a {
+                color: #ffff;
+                text-decoration: none;
+                transition: 0.3s ease;
+                font-size: 0.9em;
+            }
+
+            .forgot-remember a:hover {
+                text-decoration: underline;
+                color: var(--hover-color);
+            }
+
+            .auth-box button {
+                width: calc(100% - 60px);
+                height: 45px;
+                border-radius: 40px;
+                background: #ffff;
+                border: none;
+                font-weight: bold;
+                cursor: pointer;
+                outline: none;
+                font-size: 1rem;
+                transition: 0.4s ease;
+                margin-top: 20px;
+                /* Mejoras de estilo para botones de autenticación */
+                background: linear-gradient(45deg, #ffffff, #e0e0e0);
+                color: var(--main-color);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            .auth-box button:hover {
+                opacity: 0.9;
+                background-color: var(--hover-color);
+                color: #fff;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            }
+
+            .register-link {
+                font-size: 0.9em;
+                color: #ffff;
+                text-align: center;
+                margin: 20px 0 10px;
+            }
+
+            .register-link p a {
+                text-decoration: none;
+                color: white;
+                font-weight: bold;
+                transition: 0.3s ease;
+            }
+
+            .register-link p a:hover {
+                text-decoration: underline;
+                color: var(--hover-color);
+            }
+
+            /* Ocultar secciones por defecto, se mostrarán con JavaScript */
+            .profile-section, .advisor-application-section, .recent-activity-section, .notifications-section, .privacy-settings-section {
+                display: none;
+            }
+
+            /* Estilos para el modal de edición de perfil y el mensaje */
+            .modal-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+            }
+
+            .modal-overlay.show {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .modal-content {
+                background-color: var(--second-bg-color);
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+                text-align: center;
+                max-width: 500px;
+                width: 90%;
+                transform: translateY(-20px);
+                opacity: 0;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+            }
+
+            .modal-overlay.show .modal-content {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .modal-content h3 {
+                color: var(--main-color);
+                font-size: 1.8em;
+                margin-bottom: 20px;
+            }
+
+            .modal-content p {
+                color: var(--text-color);
+                margin-bottom: 25px;
+            }
+
+            .modal-content button {
+                background-color: var(--main-color);
+                color: white;
+                padding: 10px 20px;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+                border: none; /* Ensure no default border */
+            }
+
+            .modal-content button:hover {
+                background-color: var(--hover-color);
+                transform: translateY(-2px);
+            }
+
+            /* Nuevos estilos para secciones adicionales */
+            .recent-activity-list {
+                list-style: none;
+                padding: 0;
+                margin-top: 20px;
+                text-align: left;
+            }
+
+            .recent-activity-item {
+                background-color: var(--bg-color);
+                padding: 15px;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+                margin-bottom: 10px;
+                display: flex;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .recent-activity-item i {
+                font-size: 1.5em;
+                color: var(--main-color);
+            }
+
+            .recent-activity-item p {
+                margin: 0;
+                font-size: 1em;
+                color: var(--text-color);
+                flex-grow: 1;
+            }
+
+            .recent-activity-item .timestamp {
+                font-size: 0.85em;
+                color: #888;
+                white-space: nowrap;
+            }
+
+
+            .notification-item {
+                background-color: var(--bg-color);
+                padding: 15px;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+
+            .notification-item.read {
+                opacity: 0.7;
+                background-color: #f0f0f0;
+            }
+
+            .notification-item p {
+                margin: 0;
+                font-size: 1em;
+                color: var(--text-color);
+            }
+
+            .notification-item button {
+                background-color: var(--main-color);
+                color: white;
+                padding: 8px 15px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.2s ease;
+                font-size: 0.9em;
+                border: none;
+            }
+
+            .notification-item button:hover {
+                background-color: var(--dark-blue);
+            }
+
+            .notification-item.read button {
+                background-color: #ccc;
+                cursor: not-allowed;
+            }
+
+            .privacy-options {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                max-width: 500px;
+                margin: 20px auto;
+                text-align: left;
+            }
+
+            .privacy-option {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: var(--bg-color);
+                padding: 15px;
+                border-radius: 8px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            }
+
+            .privacy-option label {
+                font-size: 1.1em;
+                color: var(--text-color);
+                font-weight: 500;
+            }
+
+            .privacy-option input[type="checkbox"] {
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+                accent-color: var(--main-color); /* Color del checkbox */
+            }
+
+
+            /* Responsive adjustments for smaller screens */
+            @media (max-width: 768px) {
+                .main-content {
+                    padding: 10px; /* Reduce padding on smaller screens */
+                }
+
+                .profile-section, .advisor-application-section, .recent-activity-section, .notifications-section, .privacy-settings-section {
+                    padding: 20px; /* Adjust padding for inner sections */
+                }
+
+                .profile-info, .advisor-form, .edit-profile-form, .privacy-options, .recent-activity-list {
+                    max-width: 100%; /* Allow content to stretch more on small screens */
+                    padding: 0 10px; /* Add some horizontal padding */
+                }
+
+                .auth-box {
+                    width: 90%; /* Make login box more responsive */
+                    padding: 30px 15px;
+                }
+
+                .input-group {
+                    width: 100%; /* Ensure input groups fill the container */
+                }
+
+                .auth-box button {
+                    width: calc(100% - 30px); /* Adjust button width */
+                }
+
+                .modal-content {
+                    padding: 20px;
+                }
+                .recent-activity-list, .notification-list {
+                    grid-template-columns: 1fr; /* Stack on small screens */
+                }
+            }
+            body {
+    cursor: url('tortugita.png'), auto;
+}

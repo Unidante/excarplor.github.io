@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>PB1</title> 
+        <link rel="stylesheet" href="1styles.css"> 
+    </head> 
+
+     <img id="cursorPet" src="tortugita.png" style="position: absolute; pointer-events: none; width: 50px; z-index: 9999;">
+            <script>
+            const cursorPet = document.getElementById('cursorPet');
+document.addEventListener('mousemove', (e) => {
+    cursorPet.style.left = e.pageX + 'px';
+    cursorPet.style.top = e.pageY + 'px';
+});
+</script>
+ 
+<body>
+    <a href="#" class="logo">EXCARPLOR</a>
+    <i class="bx bs-menu" id="menu-icon"></i> 
+       <aside class="sidebar">
+            <div class="logo"></div>
+            <nav>
+                <a href="home_dreamstech.html" class="active"><i class='bx bx-home'></i>Inicio </a>
+                <a href="universidades.html"><i class='bx bx-building'></i> Universidades</a>
+                <a href="mentores.html"><i class='bx bx-message-rounded-dots'></i>Asesores </a>
+                <a href="preguntas frecuentes.html"><i class='bx bx-help-circle'></i> Preguntas </a>
+                <a href="cuenta.html"><i class='bx bx-user-circle'></i> Cuenta </a>
+            </nav>
+        </aside>
+</body>
+</html>

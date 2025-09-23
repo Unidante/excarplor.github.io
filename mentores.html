@@ -1,0 +1,92 @@
+`<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EXCARPLOR - Asesores</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="asesores.css">
+</head>
+
+<body class="bg-gray-100">
+    <aside class="sidebar">
+        <div class="logo"></div>
+        <nav>
+            <a href="home_dreamstech.html"><i class='bx bx-home'></i><span>Inicio</span> </a>
+            <a href="universidades.html"><i class='bx bx-building'></i><span>Universidades</span></a>
+            <a href="mentores.html" class="active"><i class='bx bx-message-rounded-dots'></i><span>Asesores</span> </a>
+            <a href="preguntas frecuentes.html"><i class='bx bx-help-circle'></i><span>Preguntas</span> </a>
+            <a href="cuenta.html"><i class='bx bx-user-circle'></i><span>Cuenta</span> </a>
+        </nav>
+    </aside>
+
+    <img id="cursorPet" src="tortugita.png" style="position: absolute; pointer-events: none; width: 50px; z-index: 9999;">
+    <script>
+        const cursorPet = document.getElementById('cursorPet');
+document.addEventListener('mousemove', (e) => {
+    cursorPet.style.left = e.pageX + 'px';
+    cursorPet.style.top = e.pageY + 'px';
+});
+</script>
+
+
+    <div class="page-layout-container">
+        <main class="main-content">
+            <section class="py-4">
+                <div class="max-w-7xl mx-auto">
+                    <h2 class="text-4xl font-extrabold text-center text-gray-900 mb-6 sm:text-5xl lg:text-6xl">
+                        Nuestros Mentores Expertos
+                    </h2>
+                    <p class="text-lg text-center text-gray-700 mb-12 max-w-3xl mx-auto">
+                        Conéctate con profesionales dedicados que te guiarán en tu camino académico y profesional. Explora sus perfiles, filtra por área de especialización y encuentra el apoyo que necesitas.
+                    </p>
+
+                    <!-- Contenedor de asesores -->
+                    <div id="advisor-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
+                        <!-- Advisor cards will be loaded here by JavaScript -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <aside class="right-sidebar">
+            <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Encuentra a tu Asesor Ideal</h3>
+            <div class="search-bar-advisors">
+                <input type="text" id="search-input" placeholder="Buscar por nombre, carrera..." class="shadow-sm" />
+                <select id="career-filter" class="shadow-sm bg-white border border-gray-300 text-gray-700">
+                    <option value="">Todas las Carreras</option>
+                    <!-- Options will be dynamically populated -->
+                </select>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Modal/Overlay para detalles del asesor -->
+<div class="advisor-list">
+    <!-- Ejemplo de tarjeta de asesor -->
+    <div class="advisor-card" onclick="toggleAdvisorDetails(this)">
+        <img src="asesor1.jpg" alt="Foto del Asesor" class="advisor-image" />
+        <h3 class="advisor-name">Laura Gómez</h3>
+        <p class="advisor-career">Psicología</p>
+
+        <!-- Detalles que se expanden -->
+        <div class="advisor-details hidden">
+            <p class="text-gray-600 text-sm mb-3">Especialista en orientación vocacional y desarrollo personal.</p>
+            <button class="schedule-button">
+                Agendar una Mentoría
+            </button>
+        </div>
+    </div>
+
+    <!-- Puedes duplicar este bloque para otros asesores -->
+</div>
+
+    <script src="asesores.js">
+        
+    </script>
+</body>
+</html>

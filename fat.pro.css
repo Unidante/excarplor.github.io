@@ -1,0 +1,391 @@
+#careers-accordion {
+    font-family: 'Poppins', sans-serif; /* Usar la misma fuente que el resto del sitio */
+    max-width: 960px; /* Ancho máximo para la aplicación */
+    margin: 40px auto; /* Centrado horizontal y margen vertical */
+    padding: 30px; /* Relleno interno */
+    background-color: var(--second-bg-color); /* Fondo basado en el tema */
+    border-radius: 10px; /* Bordes redondeados consistentes con styles.css */
+    box-shadow: var(--box-shadow); /* Sombra consistente con styles.css */
+    color: var(--text-color); /* Color de texto basado en el tema */
+    border: 1px solid var(--border-color); /* Borde suave consistente con styles.css */
+    transition: all 0.4s ease-in-out; /* Transición suave para cambios de tamaño/posición */
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Espacio entre secciones internas */
+    position: relative;
+}
+
+body {
+    cursor: url('tortugita.png'), auto;
+}
+
+/* Estilos para los mensajes de estado (carga, éxito, error) */
+.university-app-message {
+    padding: 15px 25px;
+    margin-bottom: 25px; /* Ajustado para estar dentro del gap */
+    border-radius: 8px; /* Redondeo ligeramente ajustado */
+    font-size: 1em;
+    font-weight: 600;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-15px);
+    animation: fadeInSlideDown 0.6s forwards cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: var(--box-shadow); /* Usar la sombra general */
+}
+
+/* Colores específicos para mensajes de información (usando un tono de main-color) */
+.university-app-message--info {
+    background-color: rgba(var(--main-color-rgb), 0.1);
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+}
+
+/* Colores específicos para mensajes de éxito (usando accent-green de styles.css) */
+.university-app-message--success {
+    background-color: rgba(40, 167, 69, 0.1); /* rgba del accent-green */
+    color: var(--accent-green);
+    border: 1px solid var(--accent-green);
+}
+
+/* Colores específicos para mensajes de error (rojo estándar) */
+.university-app-message--error {
+    background-color: rgba(220, 53, 69, 0.1); /* rgba de un rojo de error */
+    color: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+/* Animación de entrada para los mensajes */
+@keyframes fadeInSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos para el botón de regresar/reset (ahora dentro del contenedor dinámico) */
+.university-app-reset-button {
+    background-color: var(--dark-blue); /* Usar dark-blue del header-top */
+    color: white;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 6px; /* Consistente con .btn1 */
+    cursor: pointer;
+    font-size: 1.05em;
+    font-weight: 700;
+    margin: 0 auto 15px auto;
+    display: block;
+    width: fit-content;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Sombra ligera */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    z-index: 10;
+}
+
+.university-app-reset-button:hover {
+    background-color: var(--main-color); /* Main-color al pasar el ratón */
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedores para las listas de facultades, tipos de programa y programas */
+.university-accordion-section {
+    background-color: var(--bg-color); /* Usar el color de fondo principal del sitio */
+    border-radius: 10px; /* Consistente con .acordeon */
+    padding: 25px;
+    box-shadow: var(--box-shadow); /* Sombra consistente */
+    border: 1px solid var(--border-color); /* Borde consistente */
+}
+
+/* Estilos para los títulos de las secciones */
+.university-section-title {
+    color: var(--main-color); /* Color principal del sitio */
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-align: center;
+    position: relative;
+}
+/* Línea decorativa debajo del título de sección */
+.university-section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--main-color); /* Usar el color principal */
+    margin: 10px auto 0;
+    border-radius: 5px;
+}
+
+/* Contenedor de la lista de botones dentro de las secciones */
+.university-accordion-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px; /* Espacio ajustado, más en línea con el diseño de grid */
+}
+
+/* Estilos generales para todos los botones de acordeón */
+.university-accordion-button {
+    background-color: var(--bg-color); /* Color de fondo similar a .accordion */
+    color: var(--text-color); /* Color de texto del tema */
+    padding: 18px; /* Consistente con .accordion */
+    border: 1px solid var(--border-color);
+    border-radius: 8px; /* Consistente con .accordion */
+    text-align: center;
+    cursor: pointer;
+    font-size: 1.15em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    min-height: 60px;
+}
+
+.university-accordion-button:hover {
+    background-color: var(--main-color); /* Main-color al pasar el ratón */
+    color: var(--bg-color); /* El texto cambia a color de fondo como en .accordion.active */
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo para el botón activo/seleccionado */
+.university-accordion-button--active {
+    background-color: var(--main-color); /* Main-color cuando activo */
+    color: var(--bg-color); /* Texto cambia a color de fondo cuando activo */
+    border-color: var(--main-color);
+    box-shadow: 0 6px 18px rgba(var(--main-color-rgb), 0.4);
+    transform: translateY(-2px);
+}
+
+/* Estilos específicos para botones de tipo de programa (para diferenciarlos visualmente) */
+.university-program-type-button {
+    /* Mantener un ligero matiz para diferenciarlos si se desea, o usar variables generales */
+    background-color: var(--second-bg-color); /* Usar second-bg-color */
+    color: var(--main-color); /* Texto en main-color */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    text-align:center;
+    cursor:pointer;
+    font-size:1.15em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow:0.3px 8px rgba(255,255,255.0,975);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:auto;
+    min-height:60px;
+}
+
+.university-program-type-button:hover {
+    background-color: var(--main-color); /* Main-color al pasar el ratón */
+    color: var(--bg-color); /* Texto cambia a color de fondo */
+}
+.university-program-type-button--active {
+    background-color: var(--main-color);
+    color: var(--bg-color);
+    border-color: var(--main-color);
+    box-shadow: 0 6px 18px rgba(var(--main-color-rgb), 0.4);
+}
+
+/* Estilos específicos para botones de programa (carrera individual) */
+.university-program-button {
+    background-color: var(--bg-color); /* Color de fondo principal para los items de la lista */
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    font-size: 1em;
+    padding: 15px; /* Relleno ajustado */
+    min-height: 50px;
+    border-left: 5px solid var(--main-color); /* Borde izquierdo para destacar */
+}
+.university-program-button:hover {
+    background-color: var(--second-bg-color); /* second-bg-color al pasar el ratón */
+    color: var(--main-color); /* Texto en main-color al pasar el ratón */
+    transform: translateX(5px); /* Desplazamiento a la derecha como en .degree-list a:hover */
+}
+.university-program-button--active {
+    background-color: var(--main-color); /* Main-color cuando activo */
+    color: var(--bg-color); /* Texto cambia a color de fondo cuando activo */
+    border-color: var(--main-color);
+    box-shadow: 0 6px 18px rgba(var(--main-color-rgb), 0.4);
+}
+
+
+/* Estilos para indicadores de carga y mensajes de "no hay datos" */
+.university-loading-indicator,
+.university-no-data {
+    text-align: center;
+    padding: 25px;
+    color: var(--text-color); /* Color de texto general */
+    font-style: italic;
+    grid-column: 1 / -1;
+    font-size: 1.1em;
+}
+
+.university-error-message {
+    color: #dc3545; /* Rojo de error */
+    font-weight: bold;
+}
+
+/* Estilos para la sección de detalles del programa */
+.university-details-section {
+    background-color: var(--second-bg-color); /* Fondo secundario del sitio */
+    border-radius: 10px; /* Consistente con .acordeon */
+    padding: 35px;
+    box-shadow: var(--box-shadow); /* Sombra consistente */
+    border: 1px solid var(--border-color);
+    animation: fadeInScaleUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+/* Título de la sección de detalles */
+.university-details-title {
+    color: var(--main-color); /* Color principal del sitio */
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-align: center;
+    position: relative;
+}
+/* Línea decorativa debajo del título de detalles */
+.university-details-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--main-color); /* Usar el color principal */
+    margin: 15px auto 0;
+    border-radius: 5px;
+}
+
+/* Nombre del programa en los detalles */
+.university-details-name {
+    color: var(--text-color); /* Color de texto general */
+    font-size: 1.8em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Contenido de texto en los detalles */
+.university-details-content p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+    font-size: 1.1em;
+    color: var(--text-color); /* Color de texto general */
+}
+
+.university-details-content strong {
+    color: var(--main-color); /* Color principal del sitio */
+    font-weight: 700;
+}
+
+/* Animación para la aparición de la sección de detalles */
+@keyframes fadeInScaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Media Queries para Responsividad (adaptación a diferentes tamaños de pantalla) */
+
+/* Para pantallas medianas (tabletas, laptops pequeñas) */
+@media (max-width: 900px) {
+    #careers-accordion {
+        padding: 25px;
+        margin: 30px auto;
+        gap: 20px;
+    }
+}
+
+/* Para pantallas pequeñas (tabletas en vertical, móviles grandes) */
+@media (max-width: 768px) {
+    #careers-accordion {
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 10px;
+        gap: 15px;
+    }
+    .university-section-title {
+        font-size: 1.6em;
+        margin-bottom: 18px;
+    }
+    .university-accordion-list {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+        gap: 12px;
+    }
+    .university-accordion-button {
+        padding: 15px 20px;
+        font-size: 1.05em;
+        min-height: 55px;
+    }
+    .university-app-reset-button {
+        padding: 10px 18px;
+        font-size: 0.95em;
+        margin-bottom: 20px;
+    }
+    .university-details-section {
+        padding: 25px;
+    }
+    .university-details-title {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+    .university-details-name {
+        font-size: 1.4em;
+    }
+    .university-details-content p {
+        font-size: 1em;
+        margin-bottom: 10px;
+    }
+}
+
+/* Para pantallas muy pequeñas (móviles) */
+@media (max-width: 480px) {
+    #careers-accordion {
+        padding: 15px;
+        margin: 15px auto;
+        border-radius: 8px;
+        gap: 10px;
+    }
+    .university-section-title {
+        font-size: 1.3em;
+        margin-bottom: 15px;
+    }
+    .university-accordion-button {
+        padding: 12px 15px;
+        font-size: 0.95em;
+        min-height: 50px;
+    }
+    .university-app-reset-button {
+        padding: 8px 15px;
+        font-size: 0.85em;
+        margin-bottom: 15px;
+    }
+    .university-details-section {
+        padding: 20px;
+    }
+    .university-details-title {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+    .university-details-name {
+        font-size: 1.2em;
+    }
+    .university-details-content p {
+        font-size: 0.9em;
+    }
+}

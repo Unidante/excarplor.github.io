@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EXCARPLOR - Preguntas Frecuentes</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            transition: background-color 0.5s, color 0.5s;
+            font-family: Arial, sans-serif;
+        }
+
+        body.dark-mode {
+            background-color: #0e1e3a;
+            color: #ffffff;
+        }
+
+        .sidebar, .main-content, .footer {
+            background-color: #132a4a;
+            color: white;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 15px;
+            right: 20px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .theme-toggle img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 80px auto;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+        body.dark-mode .faq-container {
+            background-color: #1d3557;
+            color: white;
+        }
+
+        .faq-container h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #3b7bbf;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            background-color: #5293c4;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            font-size: 16px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .faq-question::after {
+            content: "+";
+            position: absolute;
+            right: 20px;
+            color: white;
+            font-size: 22px;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "−";
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s;
+            background-color: #e8f3fc;
+            padding: 0 20px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 15px 20px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Botón de cambio de tema -->
+<div class="theme-toggle" onclick="toggleTheme()">
+    <img id="theme-icon" src="day-and-night.png" alt="Cambiar tema" />
+</div>
+  <img id="cursorPet" src="tortugita.png" style="position: absolute; pointer-events: none; width: 50px; z-index: 9999;">
+            <script>
+            const cursorPet = document.getElementById('cursorPet');
+document.addEventListener('mousemove', (e) => {
+    cursorPet.style.left = e.pageX + 'px';
+    cursorPet.style.top = e.pageY + 'px';
+});
+</script>
+
+
+
+  <aside class="sidebar">
+            <div class="logo"></div>
+            <nav>
+                <a href="home_dreamstech.html" class="active"><i class='bx bx-home'></i>Inicio </a>
+                <a href="universidades.html"><i class='bx bx-building'></i> Universidades</a>
+                <a href="mentores.html"><i class='bx bx-message-rounded-dots'></i>Asesores </a>
+                <a href="preguntas frecuentes.html"><i class='bx bx-help-circle'></i> Preguntas </a>
+                <a href="cuenta.html"><i class='bx bx-user-circle'></i> Cuenta </a>
+            </nav>
+        </aside> 
+<main>
+    <div class="faq-container">
+        <h1>Preguntas Frecuentes</h1>
+
+        <div class="faq-item">
+            <button class="faq-question">¿Qué información proporciona esta página web?</button>
+            <div class="faq-answer">
+                <p>EXCARPLOR te brinda acceso a información sobre universidades en Panamá, incluyendo programas académicos, ubicación, requisitos y contacto con asesores. También cuenta con un sistema de recomendación por IA para ayudarte a elegir tu carrera ideal.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">¿Esta página solo proporciona información de universidades de Santiago de Veraguas?</button>
+            <div class="faq-answer">
+                <p>No, aunque Santiago de Veraguas es una de las regiones destacadas, también incluimos universidades de todo Panamá. Nuestro objetivo es que tengas una visión completa y actualizada del panorama universitario nacional.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">¿Dónde encuentro los programas académicos que ofrecen las universidades?</button>
+            <div class="faq-answer">
+                <p>En la sección "Universidades", puedes hacer clic sobre la universidad de tu interés para ver todos sus programas disponibles, desde técnicos hasta licenciaturas y postgrados.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">¿Cómo puedo usar el "Asesor de Carreras IA"?</button>
+            <div class="faq-answer">
+                <p>Ve a la sección del asesor, responde unas preguntas sobre tus intereses y habilidades, y nuestra inteligencia artificial te mostrará las carreras que más se adaptan a ti. ¡Es fácil, rápido y útil!</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">¿Cómo me contacto con el asesor?</button>
+            <div class="faq-answer">
+                <p>Dentro de la sección "Asesores", encontrarás formularios o botones de contacto para escribirle directamente al asesor académico disponible, o dejar tus datos para que se comuniquen contigo.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">¿La información de las universidades está actualizada?</button>
+            <div class="faq-answer">
+                <p>Trabajamos constantemente para actualizar la información, pero recomendamos confirmar directamente con las universidades para datos como fechas, costos y requisitos recientes.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">¿Puedo sugerir una nueva universidad para añadir a la plataforma?</button>
+            <div class="faq-answer">
+                <p>¡Claro que sí! Puedes sugerir universidades usando el formulario de contacto o escribiéndonos por redes sociales. Nos encanta mejorar la plataforma con la ayuda de los usuarios.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">¿Qué tipo de carreras se recomiendan en el asesor de IA?</button>
+            <div class="faq-answer">
+                <p>El asesor IA recomienda carreras según tus respuestas. Puedes recibir opciones de ingeniería, salud, ciencias sociales, tecnología, educación, entre muchas otras.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">¿Cómo puedo reportar un problema o sugerir una mejora?</button>
+            <div class="faq-answer">
+                <p>Puedes reportar errores o sugerencias desde el pie de página en la sección "Contáctanos", o enviarnos un mensaje por nuestras redes oficiales.</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    // Tema claro / oscuro
+    function toggleTheme() {
+        const body = document.body;
+        const icon = document.getElementById("theme-icon");
+        body.classList.toggle("dark-mode");
+        icon.src = "day-and-night.png"; // Puedes cambiar a una imagen de luna/sol si tienes dos versiones
+    }
+
+    // FAQ desplegable
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            item.classList.toggle('active');
+        });
+    });
+</script>
+
+</body>
+</html>

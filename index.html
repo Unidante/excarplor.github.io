@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Explora Universidades</title>
+  <link rel="stylesheet" href="1styles.css">
+</head>
+<body>
+
+   <img id="cursorPet" src="tortugita.png" style="position: absolute; pointer-events: none; width: 50px; z-index: 9999;">
+            <script>
+            const cursorPet = document.getElementById('cursorPet');
+document.addEventListener('mousemove', (e) => {
+    cursorPet.style.left = e.pageX + 'px';
+    cursorPet.style.top = e.pageY + 'px';
+});
+</script>
+
+  <h1>Explora Universidades</h1>
+
+  <section>
+    <h2>Universidades disponibles</h2>
+    <div id="universidades">
+      <p>Cargando universidades...</p>
+    </div>
+  </section>
+
+  <section id="detalle-universidad-container" style="display:none;">
+    <h2>Información de la Universidad</h2>
+    <div id="detalle-universidad"></div>
+  </section>
+
+  <section id="detalle-facultad-container" style="display:none;">
+    <h2>Facultades</h2>
+    <div id="detalle-facultad"></div>
+  </section>
+
+  <section id="detalle-programa-container" style="display:none;">
+    <h2>Programas</h2>
+    <div id="detalle-programa"></div>
+  </section>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

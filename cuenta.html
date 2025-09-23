@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>EXCARPLOR - Mi Cuenta</title>
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+        <!-- Link to your existing styles.css file -->
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="cuenta.css"
+        </style>
+    </head>
+    <body>
+        <aside class="sidebar">
+            <div class="logo"></div>
+            <nav>
+                <a href="home_dreamstech.html" class="active"><i class='bx bx-home'></i>Inicio </a>
+                <a href="universidades.html"><i class='bx bx-building'></i> Universidades</a>
+                <a href="mentores.html"><i class='bx bx-message-rounded-dots'></i>Asesores </a>
+                <a href="preguntas frecuentes.html"><i class='bx bx-help-circle'></i> Preguntas </a>
+                <a href="cuenta.html"><i class='bx bx-user-circle'></i> Cuenta </a>
+            </nav>
+        </aside>
+        <!-- The user specified not to include the navigation bar, so the <aside class="sidebar"> section is omitted. -->
+
+        <!-- Main container for the account page -->
+        <main class="main-content">
+            <!-- Authentication Section (Login/Registration) -->
+            <div class="auth-container" id="authContainer">
+                <div class="auth-box">
+                    <h2 id="authTitle">Iniciar Sesión</h2>
+                    <form id="authForm">
+                        <div class="input-group">
+                            <i class='bx bxs-user'></i>
+                            <input type="text" required id="usernameEmail">
+                            <label for="usernameEmail">Usuario o Email</label>
+                        </div>
+                        <div class="input-group">
+                            <i class='bx bxs-lock-alt'></i>
+                            <input type="password" required id="password">
+                            <label for="password">Contraseña</label>
+                        </div>
+                        <!-- Campo de confirmar contraseña para registro -->
+                        <div class="input-group" id="confirmPasswordGroup" style="display: none;">
+                            <i class='bx bxs-lock-alt'></i>
+                            <input type="password" id="confirmPassword">
+                            <label for="confirmPassword">Confirmar Contraseña</label>
+                        </div>
+                        <div class="forgot-remember">
+                            <label>
+                                <input type="checkbox"> Recordarme
+                            </label>
+                            <a href="#">¿Olvidaste tu contraseña?</a>
+                        </div>
+                        <button type="submit">Iniciar Sesión</button>
+                        <div class="register-link">
+                            <p>¿No tienes una cuenta? <a href="#" id="registerLink">Regístrate</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- User Profile Section (visible after login) -->
+            <section class="profile-section page-section" id="profileSection">
+                <h2>Mi Perfil</h2>
+                <img src="https://placehold.co/120x120/4682B4/FFFFFF?text=Avatar" alt="User Avatar" class="profile-avatar" id="profileAvatarDisplay">
+                <div class="profile-info">
+                    <p><strong>Nombre de Usuario:</strong> <span id="displayUsername">JohnDoe</span></p>
+                    <p><strong>Email:</strong> <span id="displayEmail">johndoe@example.com</span></p>
+                    <p><strong>Tipo de Usuario:</strong> <span id="displayUserType">Estudiante</span></p>
+                    <p><strong>Fecha de Registro:</strong> 01/01/2023</p>
+                    <p><strong>Último Acceso:</strong> 25/06/2025</p>
+                </div>
+                <button class="btn1" style="margin-top: 20px;" id="editProfileBtn">Editar Perfil</button>
+                <button class="btn1" style="margin-top: 20px;" id="showAdvisorFormBtn">Convertirse en Asesor</button>
+                <button class="btn1" style="margin-top: 20px;" id="logoutBtn">Cerrar Sesión</button>
+            </section>
+
+            <!-- Advisor Application Form Section (visible when "Become an Advisor" is clicked) -->
+            <section class="advisor-application-section page-section" id="advisorApplicationSection">
+                <h2>Aplicar para ser Asesor</h2>
+                <form class="advisor-form" id="advisorApplicationForm">
+                    <p>Complete el siguiente formulario para postularse como asesor. Sus datos serán verificados por nuestro equipo.</p>
+                    <label for="fullName">Nombre Completo:</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Su Nombre Completo" required>
+
+                    <label for="advisorEmail">Correo Electrónico:</label>
+                    <input type="email" id="advisorEmail" name="advisorEmail" placeholder="Su Correo Electrónico" required>
+
+                    <label for="phone">Número de Teléfono:</label>
+                    <input type="text" id="phone" name="phone" placeholder="Su Número de Teléfono (opcional)">
+
+                    <label for="expertise">Áreas de Expertise (ej. Matemáticas, Programación, Idiomas):</label>
+                    <textarea id="expertise" name="expertise" rows="4" placeholder="Describa sus áreas de conocimiento y experiencia" required></textarea>
+
+                    <label for="experience">Experiencia como Asesor/Tutor:</label>
+                    <textarea id="experience" name="experience" rows="4" placeholder="Describa su experiencia previa (si la tiene)" required></textarea>
+
+                    <label for="whyAdvisor">¿Por qué desea ser asesor en EXCARPLOR?</label>
+                    <textarea id="whyAdvisor" name="whyAdvisor" rows="4" placeholder="Explique sus motivaciones" required></textarea>
+
+                    <button type="submit" class="form-button">Enviar Solicitud</button>
+                    <button type="button" class="btn1" id="backToProfileBtn">Volver al Perfil</button>
+                </form>
+            </section>
+
+            <!-- Sección de Actividad Reciente -->
+            <section class="recent-activity-section page-section" id="recentActivitySection">
+                <h2>Actividad Reciente</h2>
+                <ul class="recent-activity-list" id="activityList">
+                    <!-- Las actividades se añadirán aquí dinámicamente -->
+                    <li class="recent-activity-item">
+                        <i class='bx bx-log-in'></i>
+                        <p>Inició sesión.</p>
+                        <span class="timestamp">Justo ahora</span>
+                    </li>
+                    <li class="recent-activity-item">
+                        <i class='bx bx-user-circle'></i>
+                        <p>Actualizó la información de su perfil.</p>
+                        <span class="timestamp">Hace 5 minutos</span>
+                    </li>
+                    <li class="recent-activity-item">
+                        <i class='bx bx-message-rounded-dots'></i>
+                        <p>Envió una solicitud para ser asesor.</p>
+                        <span class="timestamp">Hace 1 hora</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Notificaciones/Mensajes Section -->
+            <section class="notifications-section page-section" id="notificationsSection">
+                <h2>Notificaciones y Mensajes</h2>
+                <div class="notification-list">
+                    <div class="notification-item" data-notification-id="n1">
+                        <p>Tu solicitud de asesor ha sido aprobada. ¡Felicidades!</p>
+                        <button class="mark-as-read-btn">Marcar como leído</button>
+                    </div>
+                    <div class="notification-item" data-notification-id="n2">
+                        <p>Nuevo material disponible en "Cálculo Diferencial e Integral".</p>
+                        <button class="mark-as-read-btn">Marcar como leído</button>
+                    </div>
+                    <div class="notification-item read" data-notification-id="n3">
+                        <p>¡Bienvenido a EXCARPLOR! Completa tu perfil para empezar.</p>
+                        <button class="mark-as-read-btn" disabled>Leído</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Configuración de Privacidad Section -->
+            <section class="privacy-settings-section page-section" id="privacySettingsSection">
+                <h2>Configuración de Privacidad</h2>
+                <div class="privacy-options">
+                    <div class="privacy-option">
+                        <label for="showEmail">Mostrar mi email en el perfil público:</label>
+                        <input type="checkbox" id="showEmail" checked>
+                    </div>
+                    <div class="privacy-option">
+                        <label for="receiveNotifications">Recibir notificaciones por correo:</label>
+                        <input type="checkbox" id="receiveNotifications" checked>
+                    </div>
+                    <div class="privacy-option">
+                        <label for="dataSharing">Permitir el uso de mis datos para mejorar el servicio:</label>
+                        <input type="checkbox" id="dataSharing">
+                    </div>
+                </div>
+                <button class="btn1" id="savePrivacySettingsBtn">Guardar Configuración de Privacidad</button>
+            </section>
+
+        </main>
+
+        <!-- Edit Profile Modal -->
+        <div id="editProfileModal" class="modal-overlay">
+            <div class="modal-content">
+                <h3>Editar Perfil</h3>
+                <form id="editProfileForm" class="edit-profile-form">
+                    <label for="editUsername">Nombre de Usuario:</label>
+                    <input type="text" id="editUsername" name="editUsername" required>
+
+                    <label for="editEmail">Email:</label>
+                    <input type="email" id="editEmail" name="editEmail" required>
+
+                    <label for="editUserType">Tipo de Usuario:</label>
+                    <input type="text" id="editUserType" name="editUserType">
+
+                    <label for="editAvatarUrl">URL de la Imagen de Perfil:</label>
+                    <input type="text" id="editAvatarUrl" name="editAvatarUrl" placeholder="https://ejemplo.com/tu-imagen.jpg">
+                    <small style="color: #666; font-size: 0.8em; text-align: left;">Introduce una URL de imagen.</small>
+
+                    <div style="display: flex; justify-content: space-between; margin-top: 20px; gap: 10px;">
+                        <button type="button" style="flex: 1;" id="saveProfileBtn" class="form-button">Guardar Cambios</button>
+                        <button type="button" class="btn1" style="flex: 1;" id="cancelEditProfileBtn">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Message Box -->
+        <div id="messageBox" class="modal-overlay">
+            <div class="modal-content">
+                <h3 id="messageTitle"></h3>
+                <p id="messageText"></p>
+                <button id="messageOkBtn" class="form-button">OK</button>
+            </div>
+        </div>
+
+        <!-- Script to handle section visibility and form switching -->
+        <script src="cuenta.js"></script>
+            
+    </body>
+</html>

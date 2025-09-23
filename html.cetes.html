@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title> CETES - <!-- "nombre clave de la universidad(ejemplo: USMA, UTP, UNACHI)"--></title>
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+        <link rel="stylesheet" href="estilos.css">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="fat.pro.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    </head>
+    <!-- <body data-university-id="escribe id para esta pagina, esto es lo que voy a usar para la base de datos, por favor en minuscula" class="page-entry-animation"> -->
+        <body data-university-id="cetes" class="page-entry-animation"></body>
+        <aside class="sidebar">
+            <div class="logo"></div>
+            <nav>
+                <a href="home_dreamstech.html" class="active"><i class='bx bx-home'></i>Inicio </a>
+                <a href="universidades.html"><i class='bx bx-building'></i> Universidades</a>
+                <a href="mentores.html"><i class='bx bx-message-rounded-dots'></i>Asesores </a>
+                <a href="preguntas frecuentes.html"><i class='bx bx-help-circle'></i> Preguntas </a>
+                <a href="cuenta.html"><i class='bx bx-user-circle'></i> Cuenta </a>
+            </nav>
+        </aside>
+    </div>
+ 
+            <script>
+            const cursorPet = document.getElementById('cursorPet');
+document.addEventListener('mousemove', (e) => {
+    cursorPet.style.left = e.pageX + 'px';
+    cursorPet.style.top = e.pageY + 'px';
+});
+</script>
+
+    
+    <main>
+        <section class="university-header">
+            <div class="back-button-container">
+                <a href="universidades.html" class="back-button">Regresar</a>
+            </div>
+            <img src="https://static.wixstatic.com/media/ec66e9_a0e51ae05d664dccba6dae560032a3b6~mv2.png/v1/fill/w_216,h_166,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/LOGO-AZUL.png" alt="Logo de cetes"  class="university-logo"> 
+           <h1 class="university-name"> CETES </h1>
+            <p class="university-description">La misión del Centro Técnico de Estudios Superiores es “Contribuir, significativamente, al desarrollo del país, mediante servicios educativos a nivel superior, innovadores y vanguardistas”.
+
+CETES, tiene como visión “Ser una institución modelo en Educación Superior no universitaria de alta calidad, integridad, eficiencia y compromiso social”.</p>
+        </section>
+         <section class="carousel-container">
+            <div class="carousel-slide">
+                <!-- <img src="enlace de una imagen relacionada a la universidad" alt="Sede 1 Universidad de Panamá"> -->
+                <img src="https://static.wixstatic.com/media/ec66e9_1f97ff3b26544557958874687bc3db09~mv2_d_5120_3840_s_4_2.jpg/v1/fill/w_618,h_464,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/SEDE.jpg">
+                <img src="https://static.wixstatic.com/media/ec66e9_96a3cf387f9c450a99ecc0937ce8749b~mv2.jpg/v1/crop/x_0,y_72,w_876,h_631/fill/w_563,h_404,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/cetes%20colon.jpg">
+                <img src="https://static.wixstatic.com/media/ec66e9_b5fff0e006f744a9857d498b993a506d~mv2.jpg/v1/fill/w_593,h_447,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/ec66e9_b5fff0e006f744a9857d498b993a506d~mv2.jpg" alt="Sede 4 Universidad de Panamá">
+            </div>
+            <button class="carousel-prev">&#10094;</button>
+            <button class="carousel-next">&#10095;</button>
+        </section>
+
+        <h2 style="text-align: center; margin-top: 40px; font-size: 2.5em; color: var(--main-color);">Facultades y Programas</h2>
+         <div class="acordeon" id="careers-accordion">
+            <div class="loading-indicator" style="display: block; text-align: center; padding: 20px; color: var(--text-color);">Cargando carreras...</div>
+        </div>
+    </main>
+     <div>
+            <h1 id="tituloInteractivo">Coméntanos que te parecio...</h1>
+        </div>
+        <div class="container">
+            <h2>¿Qué te parece nuestro servicio?</h2>
+        
+            <!-- Formulario para comentario y valoración -->
+            <form id="comentarioForm">
+            <div id="valoracionEstrellas" class="estrellas">
+                <i data-valor="1" class="fas fa-star"></i>
+                <i data-valor="2" class="fas fa-star"></i>
+                <i data-valor="3" class="fas fa-star"></i>
+                <i data-valor="4" class="fas fa-star"></i>
+                <i data-valor="5" class="fas fa-star"></i>
+            </div>
+            <label for="comentario">Tu comentario:</label>
+            <textarea id="comentario" rows="4" placeholder="Escribe tu opinión..."></textarea>
+            <button type="submit">Enviar</button>
+            </form>
+        <h3 style="text-align: center;">Reseñas Recientes</h3>
+            <!-- Título de las reseñas -->
+            <div id="contenedorResenas">
+            <!-- Las reseñas se irán agregando aquí -->
+            </div>
+        </div>
+    <footer class="footer">
+                    <p class="p1">Dream Tech</p>
+                    <h4 class="algo">Síguenos en</h4>
+                    <ul class="social-icon">
+                        <a href="no existe">
+                            <li class="icon-element">
+                            <i class='bx bxl-facebook-circle'></i>
+                        </li>
+                        </a>
+                        <a href="https://www.instagram.com/dreamstech_pa/">
+                        <li class="icon-element">
+                            <i class='bx bxl-instagram'></i>  
+                        </li>    
+                        </a>
+                        <a href="https://www.linkedin.com/in/dreams-tech-0a2898370/">               
+                        <li class="icon-element">
+                            <i class='bx bxl-linkedin'></i>
+                        </li>
+                        </a>
+                    </ul>
+                    <ul class="elemento">
+                        <li class="elemento-y">
+                            <a href="" class="elemento-x">Sobre nosotros</a>
+                        </li>
+                        <li class="elemento-y">
+                            <a href="#" class="elemento-x">Política de Privacidad</a>
+                        </li>
+                        <li class="elemento-y">
+                            <a href="#" class="elemento-x">Términos de Servicio</a>
+                        </li>
+                    </ul>
+                </footer>
+    <script type="module" src="script.js"></script>
+    <script type="module" src="interaccion.js"></script>
+    <script type="module" src="university-data-loader.js"></script>
+    
+    
+</body>
+</html>
