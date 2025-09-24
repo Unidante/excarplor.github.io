@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="asesores.css">
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-100" data-university-id="mentores">
     <aside class="sidebar">
         <div class="logo"></div>
         <nav>
-            <a href="home_dreamstech.html"><i class='bx bx-home'></i><span>Inicio</span> </a>
+            <a href="index.html"><i class='bx bx-home'></i><span>Inicio</span> </a>
             <a href="universidades.html"><i class='bx bx-building'></i><span>Universidades</span></a>
             <a href="mentores.html" class="active"><i class='bx bx-message-rounded-dots'></i><span>Asesores</span> </a>
             <a href="preguntas frecuentes.html"><i class='bx bx-help-circle'></i><span>Preguntas</span> </a>
@@ -38,10 +38,10 @@ document.addEventListener('mousemove', (e) => {
         <main class="main-content">
             <section class="py-4">
                 <div class="max-w-7xl mx-auto">
-                    <h2 class="text-4xl font-extrabold text-center text-gray-900 mb-6 sm:text-5xl lg:text-6xl">
+                    <h2 class="text-4xl font-extrabold text-center mb-6 sm:text-5xl lg:text-6xl">
                         Nuestros Mentores Expertos
                     </h2>
-                    <p class="text-lg text-center text-gray-700 mb-12 max-w-3xl mx-auto">
+                    <p class="text-lg text-center mb-12 max-w-3xl mx-auto">
                         Conéctate con profesionales dedicados que te guiarán en tu camino académico y profesional. Explora sus perfiles, filtra por área de especialización y encuentra el apoyo que necesitas.
                     </p>
 
@@ -54,10 +54,10 @@ document.addEventListener('mousemove', (e) => {
         </main>
 
         <aside class="right-sidebar">
-            <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Encuentra a tu Asesor Ideal</h3>
+            <h3 class="text-2xl font-bold mb-4 text-center">Encuentra a tu Asesor Ideal</h3>
             <div class="search-bar-advisors">
                 <input type="text" id="search-input" placeholder="Buscar por nombre, carrera..." class="shadow-sm" />
-                <select id="career-filter" class="shadow-sm bg-white border border-gray-300 text-gray-700">
+                <select id="career-filter" class="shadow-sm border">
                     <option value="">Todas las Carreras</option>
                     <!-- Options will be dynamically populated -->
                 </select>
@@ -75,7 +75,7 @@ document.addEventListener('mousemove', (e) => {
 
         <!-- Detalles que se expanden -->
         <div class="advisor-details hidden">
-            <p class="text-gray-600 text-sm mb-3">Especialista en orientación vocacional y desarrollo personal.</p>
+            <p class="text-sm mb-3">Especialista en orientación vocacional y desarrollo personal.</p>
             <button class="schedule-button">
                 Agendar una Mentoría
             </button>
@@ -85,8 +85,41 @@ document.addEventListener('mousemove', (e) => {
     <!-- Puedes duplicar este bloque para otros asesores -->
 </div>
 
-    <script src="asesores.js">
-        
-    </script>
+<div id="advisor-detail-overlay" class="fixed inset-0 bg-opacity-75 flex items-center justify-center z-50 hidden">
+    <div class="rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+        <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+                <h2 id="detail-name" class="text-3xl font-bold"></h2>
+                <button id="close-advisor-detail" class="hover:text-gray-900">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-col md:flex-row gap-6">
+                <div class="md:w-1/3">
+                    <img id="detail-image" src="" alt="Foto del asesor" class="w-full h-auto rounded-lg shadow-md">
+                    <p id="detail-career" class="mt-3 font-medium"></p>
+                    <a id="detail-email" href="mailto:" class="mt-2 inline-block"></a>
+                </div>
+                <div class="md:w-2/3">
+                    <div id="detail-description" class="mb-6"></div>
+                    <div id="chat-container" class="border rounded-lg p-4">
+                        <div id="chat-messages" class="h-64 overflow-y-auto mb-4 p-2"></div>
+                        <div id="chat-input-container" class="flex">
+                            <input type="text" id="user-question" placeholder="Escribe tu pregunta aquí..." class="flex-grow p-2 border rounded-l-lg">
+                            <button id="send-question-button" class="p-2 rounded-r-lg">Enviar</button>
+                        </div>
+                        <div id="loading-indicator" class="mt-2 hidden">Procesando tu pregunta...</div>
+                        <div id="chat-disabled-message" class="mt-2 hidden">Chat no disponible en este momento.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="asesores.js"></script>
+<script src="theme-switcher.js"></script>
 </body>
 </html>
