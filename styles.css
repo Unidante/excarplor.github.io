@@ -18,6 +18,51 @@
     --border-color: #cccccc;
 }
 
+/* Variables para el tema oscuro */
+.dark-mode {
+    --bg-color: #0e1e3a; /* Fondo oscuro */
+    --second-bg-color: #1a2a4a; /* Azul oscuro para secciones secundarias - más oscuro para mejor contraste */
+    --text-color: #ffffff; /* Texto claro */
+    --main-color: #4682B4; /* Mantener el azul de la barra lateral */
+    --dark-blue: #366799; /* Mantener el azul oscuro para contrastes */
+    --light-blue-bg: #1a3a5a; /* Fondo azul oscuro */
+    --dark-teal: #4682B4; /* Mantener el mismo azul */
+    --accent-green: #28a745; /* Mantener el verde de acento */
+    --accent-blue: #007bff; /* Mantener el azul de acento */
+    --hover-color: #5ea2bf; /* Mantener el color de hover */
+    --main-color-rgb: 70, 130, 180; /* Mantener el RGB del color principal */
+    --second-bg-color-rgb: 26, 42, 74; /* RGB del segundo color de fondo oscuro */
+    --box-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Sombra más oscura */
+    --border-color: #2a3a5a; /* Borde más oscuro */
+}
+
+/* Estilos adicionales para mejorar la visibilidad en modo oscuro */
+.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4, .dark-mode h5, .dark-mode h6 {
+    color: #ffffff; /* Asegurar que los títulos sean blancos en modo oscuro */
+}
+
+.dark-mode p, .dark-mode span, .dark-mode li, .dark-mode label {
+    color: #e0e0e0; /* Texto ligeramente menos brillante que blanco puro para reducir fatiga visual */
+}
+
+.dark-mode a {
+    color: #78b0e6; /* Enlaces más claros y visibles en modo oscuro */
+}
+
+.dark-mode .sidebar a {
+    color: #ffffff; /* Asegurar que los enlaces de la barra lateral sean blancos */
+}
+
+.dark-mode input, .dark-mode textarea, .dark-mode select {
+    background-color: #2a3a5a; /* Fondos de campos de formulario más oscuros */
+    color: #ffffff; /* Texto de campos de formulario en blanco */
+    border: 1px solid #3a4a6a; /* Borde más visible */
+}
+
+.dark-mode .university-description, .dark-mode .service p {
+    color: #d0d0d0; /* Mejorar visibilidad de descripciones */
+}
+
 
 /* Reset y estilos base */
 * {
@@ -241,7 +286,7 @@ body {
 }
 
 .servici {
-    background-color: #ffffff; /* Blanco para los servicios */
+    background-color: var(--second-bg-color); /* Blanco para los servicios */
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra más ligera */
@@ -288,7 +333,7 @@ body {
 .servici p {
     font-size: 16px;
     line-height: 1.6;
-    color: #6d6a6a; /* Color de texto más suave */
+    color: var(--text-color); /* Color de texto más suave */
 }
 
 .services {
@@ -1961,7 +2006,7 @@ body {
     }
 }
 
-/* Added styles from home_dreamstech.html */
+/* Added styles from index.html */
 * {
   box-sizing: border-box;
 }
@@ -2153,7 +2198,7 @@ header h1 {
 
 .swiper-slide p {
   font-size: 0.9rem;
-  color: #333;
+  color: var(--text-color);
   text-align: center;
 }
 
