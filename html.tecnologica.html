@@ -1,92 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
- 
-        <title> EXCARPLOR-UTP</title>
-        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-            <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
-            <link rel="stylesheet" href="estilos.css">
-            <link rel="stylesheet" href="styles.css">
-            <link rel="stylesheet" href="fat.pro.css">
-            <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="fat.pro.css">
+        <link rel="stylesheet" href="estilos.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     </head>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f0f0f0;
-    }
-
-    .carousel-container {
-      position: relative;
-      max-width: 1000px;
-      margin: 40px auto;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      height: 500px;
-    }
-
-    .carousel-slide {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-      width: 400%; /* 4 sedes */
-      height: 100%;
-    }
-
-    .carousel-slide .map-container {
-      width: 100%;
-      height: 100%;
-      flex-shrink: 0;
-    }
-
-    .map {
-      width: 100%;
-      height: 100%;
-    }
-
-    .carousel-prev,
-    .carousel-next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
-      border: none;
-      color: white;
-      font-size: 2rem;
-      cursor: pointer;
-      padding: 10px;
-      border-radius: 50%;
-      z-index: 10;
-    }
-
-    .carousel-prev {
-      left: 10px;
-    }
-
-    .carousel-next {
-      right: 10px;
-    }
-
-    .popup-img {
-      width: 100px;
-      height: auto;
-      display: block;
-      margin-top: 5px;
-      border-radius: 6px;
-    }
-  </style>
-</head>
-<body data-university-id="utp" class="page-entry-animation">
-  <aside class="sidebar">
+    <body data-university-id="unachi" class="page-entry-animation">
+        <aside class="sidebar">
             <div class="logo"></div>
             <nav>
-                <a href="home_dreamstech.html" class="active"><i class='bx bx-home'></i>Inicio </a>
+                <a href="index.html" class="active"><i class='bx bx-home'></i>Inicio </a>
                 <a href="universidades.html"><i class='bx bx-building'></i> Universidades</a>
                 <a href="mentores.html"><i class='bx bx-message-rounded-dots'></i>Asesores </a>
                 <a href="preguntas frecuentes.html"><i class='bx bx-help-circle'></i> Preguntas </a>
@@ -99,29 +28,189 @@
             <div class="back-button-container">
                 <a href="universidades.html" class="back-button">Regresar</a>
             </div>
-            <img src="https://utp.ac.pa/sites/default/files/documentos/2024/imagen/6_logo_utp_-_rgb_oficial.png" alt="Logo de la Universidad Tecnologica de Panamá" class="university-logo">
-            <h1 class="university-name">Universidad Tecnologica de Panamá</h1>
-            <p class="university-description">La Universidad Tecnológica de Panamá (UTP) es una institución pública de educación superior fundada en 1981, con la misión de impulsar el desarrollo científico, tecnológico y económico del país. Reconocida por su excelencia académica y su enfoque en la innovación, la UTP forma profesionales altamente capacitados y comprometidos con el progreso sostenible de la sociedad panameña. Su labor se basa en los principios de calidad, responsabilidad social y liderazgo en ingeniería, ciencias aplicadas y tecnología.</p>
+            <img src="https://images.seeklogo.com/logo-png/20/1/unachi-logo-png_seeklogo-207797.png" alt="Logo de la UNACHI" class="university-logo">
+            <h1 class="university-name">Universidad Autonoma de Chiriquí</h1>
+            <p class="university-description">La Universidad Autónoma de Chiriquí (UNACHI) es una institución pública de educación superior fundada en 1995, tras un proceso de autonomía que la consolidó como la primera universidad estatal en la región occidental de Panamá. Con una vocación multidisciplinaria y un firme compromiso con el desarrollo local y nacional, la UNACHI se dedica a la formación de profesionales éticos, responsables y comprometidos con el bienestar social. Su labor se fundamenta en la gestión del conocimiento, la equidad y la calidad humana, contribuyendo activamente al progreso de la sociedad panameña.</p>
         </section>
-
-
+         <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carrusel de Sedes</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+ 
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+ 
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      
+    }
+ 
+    .carousel-container {
+      position: relative;
+      max-width: 1000px;
+      height: 500px;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+ 
+    .carousel-slide {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 400%; /* 4 sedes */
+      height: 100%;
+    }
+ 
+    .slide {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-shrink: 0;
+    }
+ 
+    .map {
+      width: 60%;
+      height: 100%;
+    }
+ 
+    .sede-image {
+      width: 40%;
+      height: 100%;
+      overflow: hidden;
+    }
+ 
+    .sede-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+ 
+    .carousel-prev,
+    .carousel-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 50%;
+      z-index: 2;
+    }
+ 
+    .carousel-prev {
+      left: 10px;
+    }
+ 
+    .carousel-next {
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+ 
 <section class="carousel-container">
   <div class="carousel-slide" id="carousel-slide">
-    <div class="map-container"><div id="map-panama" class="map"></div></div>
-    <div class="map-container"><div id="map-azuero" class="map"></div></div>
-    <div class="map-container"><div id="map-cocle" class="map"></div></div>
-    <div class="map-container"><div id="map-veraguas" class="map"></div></div>
+    <!-- Panamá -->
+    <div class="slide">
+      <div id="map-panama" class="map"></div>
+      <div class="sede-image">
+        <img src="https://universidad.edu.pa/wp-content/uploads/2021/04/campus_central.jpg" alt="Sede Panamá">
+      </div>
+    </div>
+ 
+    <!-- Azuero -->
+    <div class="slide">
+      <div id="map-azuero" class="map"></div>
+      <div class="sede-image">
+        <img src="https://www.up.ac.pa/sites/default/files/2023-01/IMG_5739_0.JPG" alt="Sede Azuero">
+      </div>
+    </div>
+ 
+    <!-- Coclé -->
+    <div class="slide">
+      <div id="map-cocle" class="map"></div>
+      <div class="sede-image">
+        <img src="https://www.up.ac.pa/sites/default/files/2023-01/IMG_5749_0.JPG" alt="Sede Coclé">
+      </div>
+    </div>
+ 
+    <!-- Veraguas -->
+    <div class="slide">
+      <div id="map-veraguas" class="map"></div>
+      <div class="sede-image">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Universidad_Tecnol%C3%B3gica_de_Panam%C3%A1%2C_Campus_de_Veraguas.jpg/640px-Universidad_Tecnol%C3%B3gica_de_Panam%C3%A1%2C_Campus_de_Veraguas.jpg" alt="Sede Veraguas">
+      </div>
+    </div>
   </div>
   <button class="carousel-prev" id="prev">&#10094;</button>
   <button class="carousel-next" id="next">&#10095;</button>
 </section>
+ 
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  const slide = document.getElementById('carousel-slide');
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
+  let counter = 0;
+  const totalSlides = slide.children.length;
+ 
+  function updateCarousel() {
+    slide.style.transform = `translateX(-${100 * counter}%)`;
+  }
+ 
+  nextBtn.addEventListener('click', () => {
+    counter = (counter + 1) % totalSlides;
+    updateCarousel();
+  });
+ 
+  prevBtn.addEventListener('click', () => {
+    counter = (counter - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+  });
+ 
+  // Mapas por sede
+ const sedeData = [
+  {
+    id: "map-panama",
+    coords: [8.5710458837763, -82.46385751698763],
+    popup: `
+      Sede Chiriquí<br>
+      <img src="IMAGENES_U/UNACHI.webp" alt="Sede Chiriquí" style="width:250px;height:auto;">
+    `
+  }
+];
+ 
+  sedeData.forEach(sede => {
+    const map = L.map(sede.id).setView(sede.coords, 15);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+    L.marker(sede.coords)
+      .addTo(map)
+      .bindPopup(`<strong>${sede.popup}</strong>`)
+      .openPopup();
+  });
+ 
+  // Inicia mostrando la primera sede
+  updateCarousel();
+</script>
 
         <h2 style="text-align: center; margin-top: 40px; font-size: 2.5em; color: var(--main-color);">Facultades y Programas</h2>
          <div class="acordeon" id="careers-accordion">
             <div class="loading-indicator" style="display: block; text-align: center; padding: 20px; color: var(--text-color);">Cargando carreras...</div>
         </div>
     </main>
- <div>
+    <div>
             <h1 id="tituloInteractivo">Coméntanos que te parecio...</h1>
         </div>
         <div class="container">
@@ -146,9 +235,8 @@
             <!-- Las reseñas se irán agregando aquí -->
             </div>
         </div>
-
-  <footer class="footer">
-  <p class="p1">Dream Tech</p>
+    <footer class="footer">
+                    <p class="p1">Dream Tech</p>
                     <h4 class="algo">Síguenos en</h4>
                     <ul class="social-icon">
                         <a href="no existe">
@@ -178,93 +266,11 @@
                             <a href="#" class="elemento-x">Términos de Servicio</a>
                         </li>
                     </ul>
-  </footer>
-
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script>
-  const slide = document.getElementById('carousel-slide');
-  const prevBtn = document.getElementById('prev');
-  const nextBtn = document.getElementById('next');
-  let counter = 0;
-  const totalSlides = slide.children.length;
-
-  const sedes = [
-    {
-      id: 'map-panama',
-      coords: [9.022084156718952, -79.53119393671548],
-      popup: `
-        Sede Panamá<br>
-        <img src="IMAGENES_U/UPT_PANAMA.webp" alt="Sede Panamá" style="width:250px; height:auto;">
-      `
-    },
-    {
-      id: 'map-azuero',
-      coords: [7.937525911365655, -80.38056030818727],
-      popup: `
-        Sede Azuero<br>
-        <img src="IMAGENES_U/UTP_AZUERO.webp" alt="Sede Azuero" style="width:250px; height:auto;">
-      `
-    },
-    {
-      id: 'map-cocle',
-      coords: [8.507160931302131, -80.26764086687966],
-      popup: `
-        Sede Coclé<br>
-        <img src="IMAGENES_U/UTP_COCLE.webp" alt="Sede Coclé" style="width:250px; height:auto;">
-      `
-    },
-    {
-      id: 'map-veraguas',
-      coords: [8.074476793669376, -80.93424952370025],
-      popup: `
-        Sede Veraguas<br>
-        <img src="IMAGENES_U/UTP_VERAGUAS.jpg" alt="Sede Veraguas" style="width:250px; height:auto;">
-      `
-    }
-  ];
-
-  function initMaps() {
-    sedes.forEach(sede => {
-      const map = L.map(sede.id).setView(sede.coords, 15);
-
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
-      }).addTo(map);
-
-      L.marker(sede.coords)
-        .addTo(map)
-        .bindPopup(sede.popup)
-        .openPopup();
-    });
-  }
-
-  function updateCarousel() {
-    const percentage = -(100 * counter);
-    slide.style.transform = `translateX(${percentage}%)`;
-  }
-
-  prevBtn.addEventListener('click', () => {
-    counter = (counter - 1 + totalSlides) % totalSlides;
-    updateCarousel();
-  });
-
-  nextBtn.addEventListener('click', () => {
-    counter = (counter + 1) % totalSlides;
-    updateCarousel();
-  });
-
-  // Inicializar todo
-  initMaps();
-  updateCarousel();
-</script>
-
-
-
-</script>
-
-
-  <script type="module" src="interaccion.js"></script>
-  <script type="module" src="script.js"></script>
-  <script type="module" src="university-data-loader.js"></script>
+                </footer>
+    <script type="module" src="script.js"></script>
+    <script type="module" src="interaccion.js"></script>
+    <script type="module" src="university-data-loader.js"></script>
+    <script src="theme-switcher.js"></script>
+    
 </body>
 </html>
