@@ -1,34 +1,217 @@
 <!DOCTYPE html>
-<html>
-    <head> 
-        <meta charset="UTF-8"> 
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <title>PB1</title> 
-        <link rel="stylesheet" href="1styles.css"> 
-    </head> 
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXCARPLOR - Iniciar Sesión / Registrarse</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <style>
+        /* Variables de color (pueden ser las mismas de styles.css si se desea consistencia) */
+        :root {
+            --primary-color: #4682B4; /* Azul principal */
+            --secondary-color: #ffffff; /* Blanco para fondos de tarjeta */
+            --text-color: #333333; /* Texto oscuro */
+            --light-bg-color: transparent; /* Ahora el color de fondo principal lo da el body */
+            --button-bg-color: #d4a762; /* Color similar al botón de las imágenes */
+            --button-hover-color: #c09455;
+            --link-color: #4682B4; /* Color de enlaces */
+            --border-color: #e0e0e0;
+        }
 
-     <img id="cursorPet" src="tortugita.png" style="position: absolute; pointer-events: none; width: 50px; z-index: 9999;">
-            <script>
-            const cursorPet = document.getElementById('cursorPet');
-document.addEventListener('mousemove', (e) => {
-    cursorPet.style.left = e.pageX + 'px';
-    cursorPet.style.top = e.pageY + 'px';
-});
-</script>
- 
+        body {
+            font-family: 'Poppins', sans-serif; /* Usar Poppins si está disponible, sino sans-serif */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* FONDO ANIMADO Y COLORIDO: Degradado azul/celeste */
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2, #80deea, #4dd0e1);
+            background-size: 400% 400%; /* Tamaño del degradado para permitir la animación */
+            animation: gradientShift 15s ease infinite alternate; /* Animación sutil del degradado */
+            overflow-y: auto; /* Habilita la barra de desplazamiento vertical cuando sea necesario */
+            color: var(--text-color);
+        }
+
+        /* Keyframes para la animación del fondo */
+        @keyframes gradientShift {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+
+        .auth-page-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 100vh; /* Asegura que el contenedor ocupe la altura completa */
+            padding: 20px; /* Espaciado alrededor del contenedor principal */
+            box-sizing: border-box; /* Incluye padding en el ancho/alto */
+            /* Capa semitransparente sobre el fondo para mejorar el contraste del contenido */
+            background-color: rgba(255, 255, 255, 0.1); /* Capa blanca semi-transparente muy sutil */
+        }
+
+        .auth-card {
+            background-color: var(--secondary-color);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 450px; /* Ancho máximo similar al de las imágenes */
+            text-align: center;
+            box-sizing: border-box;
+            position: relative; /* Para posicionar el logo */
+            /* Animación de entrada para la tarjeta */
+            animation: fadeInScale 0.8s ease-out forwards;
+        }
+
+        /* Keyframes para la animación de entrada de la tarjeta */
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.9) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .auth-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 15px; /* Espacio entre el logo y el texto */
+        }
+
+        .auth-logo {
+            width: 70px; /* Tamaño del logo */
+            height: 70px;
+            border-radius: 50%; /* Si el logo es circular */
+            object-fit: cover;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .auth-header h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .auth-card h2 {
+            font-size: 1.8em;
+            color: var(--text-color);
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        /* Botón de regreso */
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(255, 255, 255, 0.3); /* Fondo semitransparente */
+            color: var(--primary-color); /* Color del icono y texto */
+            border: 1px solid rgba(255, 255, 255, 0.5); /* Borde sutil */
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            z-index: 1001; /* Asegura que esté por encima de otros elementos */
+            text-decoration: none; /* Quita el subrayado por defecto del enlace */
+        }
+        .back-button:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+            transform: translateX(-3px); /* Pequeño movimiento al pasar el ratón */
+        }
+        .back-button i {
+            font-size: 1.2em;
+        }
+
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .auth-card {
+                padding: 25px;
+                margin: 0 15px; /* Margen en los lados para pantallas pequeñas */
+            }
+
+            .auth-header h1 {
+                font-size: 2em;
+            }
+
+            .auth-logo {
+                width: 60px;
+                height: 60px;
+            }
+
+            .back-button {
+                top: 10px;
+                left: 10px;
+                padding: 8px 12px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
 <body>
-    <a href="#" class="logo">EXCARPLOR</a>
-    <i class="bx bs-menu" id="menu-icon"></i> 
-       <aside class="sidebar">
-            <div class="logo"></div>
-            <nav>
-                <a href="home_dreamstech.html" class="active"><i class='bx bx-home'></i>Inicio </a>
-                <a href="universidades.html"><i class='bx bx-building'></i> Universidades</a>
-                <a href="mentores.html"><i class='bx bx-message-rounded-dots'></i>Asesores </a>
-                <a href="preguntas frecuentes.html"><i class='bx bx-help-circle'></i> Preguntas </a>
-                <a href="cuenta.html"><i class='bx bx-user-circle'></i> Cuenta </a>
-            </nav>
-        </aside>
+    <!-- Botón de regreso -->
+    <a href="index.html" class="back-button" onclick="history.back()">
+        <i class='bx bx-arrow-back'></i> Regresar
+    </a>
+
+    <div class="auth-page-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <!-- LOGO: Usando la imagen de la tortuga -->
+                <img src="tortugita.png" alt="Logo EXCARPLOR" class="auth-logo">
+                <h1>EXCARPLOR</h1>
+            </div>
+
+            <h2 id="formTitle">Iniciar Sesión</h2>
+
+            <div id="firebaseui-auth-container"></div>
+
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <script src="./firebase-config.js"></script>
+
+    <script>
+        // Initialize the FirebaseUI Widget using Firebase.
+        const ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+        const uiConfig = {
+            callbacks: {
+                signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+                    // User successfully signed in.
+                    // Return type determines whether we continue the redirect automatically
+                    // or whether we leave that to developer to handle.
+                    return true;
+                }
+            },
+            // Will use popup for IDP Providers sign-in flow instead of redirect flow.
+            signInFlow: 'popup',
+            signInSuccessUrl: 'cuenta.html',
+            signInOptions: [
+                // Leave the lines as is for the providers you want to offer your users.
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                firebase.auth.EmailAuthProvider.PROVIDER_ID,
+            ],
+            // Terms of service url.
+            tosUrl: 'terminos.html',
+            // Privacy policy url.
+            privacyPolicyUrl: 'politicas.html'
+        };
+
+        // The start method will wait until the DOM is loaded.
+        ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+    <script src="theme-switcher.js"></script>
 </body>
 </html>
