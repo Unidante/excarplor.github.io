@@ -25,18 +25,7 @@
             color: white;
         }
 
-        .theme-toggle {
-            position: fixed;
-            top: 15px;
-            right: 20px;
-            cursor: pointer;
-            z-index: 1000;
-        }
 
-        .theme-toggle img {
-            width: 35px;
-            height: 35px;
-        }
 
         .faq-container {
             max-width: 800px;
@@ -110,10 +99,7 @@
 </head>
 <body>
 
-<!-- Botón de cambio de tema -->
-<div class="theme-toggle" onclick="toggleTheme()">
-    <img id="theme-icon" src="day-and-night.png" alt="Cambiar tema" />
-</div>
+
   <img id="cursorPet" src="tortugita.png" style="position: absolute; pointer-events: none; width: 50px; z-index: 9999;">
             <script>
             const cursorPet = document.getElementById('cursorPet');
@@ -128,7 +114,7 @@ document.addEventListener('mousemove', (e) => {
   <aside class="sidebar">
             <div class="logo"></div>
             <nav>
-                <a href="home_dreamstech.html" class="active"><i class='bx bx-home'></i>Inicio </a>
+                <a href="index.html" class="active"><i class='bx bx-home'></i>Inicio </a>
                 <a href="universidades.html"><i class='bx bx-building'></i> Universidades</a>
                 <a href="mentores.html"><i class='bx bx-message-rounded-dots'></i>Asesores </a>
                 <a href="preguntas frecuentes.html"><i class='bx bx-help-circle'></i> Preguntas </a>
@@ -205,13 +191,13 @@ document.addEventListener('mousemove', (e) => {
 </main>
 
 <script>
-    // Tema claro / oscuro
-    function toggleTheme() {
-        const body = document.body;
-        const icon = document.getElementById("theme-icon");
-        body.classList.toggle("dark-mode");
-        icon.src = "day-and-night.png"; // Puedes cambiar a una imagen de luna/sol si tienes dos versiones
-    }
+    // Aplicar el tema guardado al cargar la página
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedDarkMode = localStorage.getItem("darkMode") === "true";
+        if (savedDarkMode) {
+            document.body.classList.add("dark-mode");
+        }
+    });
 
     // FAQ desplegable
     const faqItems = document.querySelectorAll('.faq-item');
@@ -223,5 +209,6 @@ document.addEventListener('mousemove', (e) => {
     });
 </script>
 
+<script src="theme-switcher.js"></script>
 </body>
 </html>
