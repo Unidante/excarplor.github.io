@@ -1,0 +1,662 @@
+/* Estilos generales del archivo styles.css proporcionado */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        :root {
+            --bg-color: #f0f2f5;
+            --second-bg-color: #ffffff;
+            --text-color: #333333;
+            --main-color: #4682B4;
+            --dark-blue: #366799;
+            --light-blue-bg: #e0f2f4;
+            --dark-teal: #4682B4;
+            --accent-green: #28a745;
+            --accent-blue: #007bff;
+            --hover-color: #5ea2bf;
+            --main-color-rgb: 70, 130, 180;
+            --second-bg-color-rgb: 255, 255, 255;
+            --box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --border-color: #cccccc;
+        }
+
+        /* Variables para el tema oscuro */
+        .dark-mode {
+            --bg-color: #0e1e3a; /* Fondo oscuro */
+            --second-bg-color: #1a2a4a; /* Azul oscuro para secciones secundarias */
+            --text-color: #ffffff; /* Texto claro */
+            --main-color: #4682B4; /* Mantener el azul de la barra lateral */
+            --dark-blue: #366799; /* Mantener el azul oscuro para contrastes */
+            --light-blue-bg: #1a3a5a; /* Fondo azul oscuro */
+            --dark-teal: #4682B4; /* Mantener el mismo azul */
+            --accent-green: #28a745; /* Mantener el verde de acento */
+            --accent-blue: #007bff; /* Mantener el azul de acento */
+            --hover-color: #5ea2bf; /* Mantener el color de hover */
+            --main-color-rgb: 70, 130, 180; /* Mantener el RGB del color principal */
+            --second-bg-color-rgb: 26, 42, 74; /* RGB del segundo color de fondo oscuro */
+            --box-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Sombra más oscura */
+            --border-color: #2a3a5a; /* Borde más oscuro */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            list-style: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding-top: 0; /* Adjusted for fixed sidebar, main content handles top spacing */
+            overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Estilos para el modo oscuro */
+        .dark-mode .bg-gray-100 {
+            background-color: var(--bg-color) !important;
+        }
+        
+        .dark-mode .text-gray-900 {
+            color: var(--text-color) !important;
+        }
+        
+        .dark-mode .text-gray-700 {
+            color: #e0e0e0 !important;
+        }
+        
+        .dark-mode .text-gray-600 {
+            color: #d0d0d0 !important;
+        }
+        
+        .dark-mode .bg-white {
+            background-color: var(--second-bg-color) !important;
+        }
+        
+        .dark-mode .border-gray-300 {
+            border-color: var(--border-color) !important;
+        }
+        
+        .dark-mode .shadow-sm {
+            box-shadow: var(--box-shadow) !important;
+        }
+        
+        /* Estilos específicos para la página de mentores en modo oscuro */
+        .dark-mode .right-sidebar {
+            background-color: var(--second-bg-color) !important;
+            color: var(--text-color) !important;
+            border-color: var(--border-color) !important;
+        }
+        
+        .dark-mode .advisor-card {
+            background-color: var(--second-bg-color) !important;
+            color: var(--text-color) !important;
+            border-color: var(--border-color) !important;
+        }
+        
+        .dark-mode .advisor-name {
+            color: var(--text-color) !important;
+        }
+        
+        .dark-mode .advisor-career {
+            color: #d0d0d0 !important;
+        }
+        
+        .dark-mode #search-input,
+        .dark-mode #career-filter {
+            background-color: var(--second-bg-color) !important;
+            color: var(--text-color) !important;
+            border-color: var(--border-color) !important;
+        }
+        
+        .dark-mode .schedule-button {
+            background-color: var(--main-color) !important;
+            color: white !important;
+        }
+        
+        .dark-mode .page-layout-container {
+            background-color: var(--bg-color) !important;
+        }
+        
+        .dark-mode .main-content {
+            background-color: var(--bg-color) !important;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Estilos para el botón de agendar */
+.schedule-button {
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+body {
+    cursor: url('tortugita.png'), auto;
+}
+
+/* Estilos para el contenedor principal */
+.page-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+        /* Sidebar styles */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 60px;
+            background-color: var(--main-color);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: width 0.3s ease;
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        .sidebar:hover {
+            width: 180px;
+        }
+
+        .sidebar .logo {
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin: 20px 0;
+            white-space: nowrap;
+        }
+
+        .sidebar nav {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .sidebar nav a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            white-space: nowrap;
+            transition: background 0.2s;
+            border-left: 4px solid transparent;
+        }
+
+        .sidebar nav a i {
+            font-size: 1.5rem;
+            margin-right: 12px;
+            min-width: 24px;
+            text-align: center;
+        }
+
+        .sidebar nav a:hover {
+            background-color: var(--hover-color);
+            border-left-color: white;
+        }
+
+        .sidebar nav a.active {
+            background-color: var(--hover-color);
+            border-left-color: #FFFFFF;
+        }
+
+        /* Main layout container for content and right sidebar */
+        .page-layout-container {
+            display: flex;
+            flex-direction: row; /* Default to row for desktop */
+            margin-left: 60px; /* Space for the left sidebar */
+            transition: margin-left 0.3s ease;
+            min-height: 100vh; /* Ensure it takes full viewport height */
+            padding: 20px; /* General padding */
+            gap: 20px; /* Space between main content and right sidebar */
+        }
+
+        .sidebar:hover ~ .page-layout-container {
+            margin-left: 180px;
+        }
+
+        /* Main content area (left part) */
+        .main-content {
+            flex-grow: 1; /* Takes available space */
+            flex-shrink: 1;
+            min-width: 0; /* Allows content to shrink without overflow */
+            background-color: var(--second-bg-color);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Right sidebar for search and filters */
+        .right-sidebar {
+            flex-shrink: 0; /* Prevents it from shrinking too much */
+            width: 280px; /* Fixed width for desktop */
+            background-color: var(--second-bg-color);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column; /* This makes it vertical */
+            gap: 20px;
+            align-items: center;
+            height: fit-content; /* Adjust height to content */
+            position: sticky; /* Keeps it in place when scrolling */
+            top: 20px; /* Distance from top */
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Search bar styles for lateral use */
+        .search-bar-advisors {
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column; /* This ensures search input and select are stacked vertically */
+            gap: 15px;
+        }
+
+        .search-bar-advisors input[type="text"],
+        .search-bar-advisors select {
+            width: 100%;
+            padding: 12px 20px;
+            border: 1px solid var(--border-color); /* Lighter border */
+            border-radius: 25px;
+            background-color: var(--bg-color); /* Use background color for input */
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, all 0.3s ease;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.08); /* Inner shadow for depth */
+        }
+
+        .search-bar-advisors input[type="text"]::placeholder {
+            color: #888;
+        }
+
+        .search-bar-advisors input[type="text"]:focus,
+        .search-bar-advisors select:focus {
+            border-color: var(--dark-blue);
+            box-shadow: 0 0 10px rgba(70, 130, 180, 0.8), inset 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        /* Advisor Card specific styles */
+        .advisor-card {
+            background-color: var(--second-bg-color);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%; /* Ensure cards in a row have similar height */
+            border: 1px solid var(--border-color); /* Add a subtle border */
+            color: var(--text-color);
+        }
+
+        .advisor-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(var(--main-color-rgb), 0.25);
+        }
+
+        .advisor-card img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            border: 4px solid var(--main-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .advisor-card h3 {
+            font-size: 1.75rem;
+            color: var(--main-color);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .advisor-card p {
+            font-size: 1rem;
+            color: var(--text-color);
+            margin-bottom: 15px;
+            flex-grow: 1; /* Allows description to take available space */
+        }
+
+        .advisor-card .career-title {
+            font-size: 1.1rem;
+            color: var(--dark-blue);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        /* Advisor Detail Modal/Section */
+        .advisor-detail-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .advisor-detail-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .dark-mode .advisor-detail-overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .dark-mode .advisor-detail-overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .advisor-detail-content {
+            background-color: var(--second-bg-color);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 800px;
+            width: 90%;
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            position: relative; /* For close button positioning */
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .advisor-detail-overlay.show .advisor-detail-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .advisor-detail-content .close-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.2s ease;
+        }
+        .advisor-detail-content .close-button:hover {
+            color: #333;
+        }
+
+        .advisor-detail-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .advisor-detail-header img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--dark-blue);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .advisor-detail-header h3 {
+            font-size: 2.5rem;
+            color: var(--main-color);
+            margin-bottom: 0;
+            font-weight: 800;
+        }
+
+        .advisor-detail-header .career-title-detail {
+            font-size: 1.4rem;
+            color: var(--dark-blue);
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+
+        /* Chat specific styles */
+        .chat-area {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .chat-messages-container {
+            flex-grow: 1;
+            height: 400px; /* Fixed height for chat area */
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 15px;
+            overflow-y: auto;
+            background-color: var(--bg-color);
+            text-align: left; /* Align chat messages to left */
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .chat-message {
+            padding: 10px 15px;
+            border-radius: 15px;
+            max-width: 80%;
+            line-height: 1.4;
+            word-wrap: break-word; /* Ensure long words wrap */
+        }
+
+        .chat-message.user {
+            background-color: var(--main-color);
+            color: white;
+            align-self: flex-end;
+            margin-left: auto;
+            text-align: right;
+            border-bottom-right-radius: 5px;
+            border-top-right-radius: 15px;
+            border-bottom-left-radius: 15px;
+            border-top-left-radius: 15px;
+        }
+
+        .chat-message.ai {
+            background-color: var(--light-blue-bg);
+            color: var(--text-color);
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .chat-input-area {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .chat-input-area input {
+            flex-grow: 1;
+            padding: 12px 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 25px;
+            font-size: 1rem;
+            background-color: white;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
+            transition: border-color 0.2s ease;
+        }
+        .chat-input-area input:focus {
+            border-color: var(--main-color);
+        }
+
+        .chat-input-area button {
+            background-color: var(--main-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .chat-input-area button:hover {
+            background-color: var(--dark-blue);
+            transform: translateY(-2px);
+        }
+
+        .loading-indicator {
+            text-align: center;
+            margin-top: 10px;
+            color: var(--dark-blue);
+            font-weight: 500;
+            display: none; /* Hidden by default */
+        }
+
+        .chat-disabled-message {
+            text-align: center;
+            margin-top: 15px;
+            color: #d9534f; /* Red color for warning */
+            font-weight: 600;
+            display: none; /* Hidden by default */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .page-layout-container {
+                flex-direction: column;
+                margin-left: 60px;
+                padding: 15px;
+                gap: 15px;
+            }
+            .sidebar:hover ~ .page-layout-container {
+                margin-left: 180px;
+            }
+            .right-sidebar {
+                width: 100%;
+                position: static;
+                top: auto;
+                order: -1;
+            }
+            .main-content {
+                padding: 15px;
+            }
+            .advisor-card h3 {
+                font-size: 1.6rem;
+            }
+            .advisor-card .career-title {
+                font-size: 1.05rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-layout-container {
+                margin-left: 0;
+                padding: 10px;
+                gap: 10px;
+            }
+            .sidebar {
+                width: 100%;
+                height: 60px;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                top: 0;
+                left: 0;
+                padding: 0 10px;
+            }
+            .sidebar:hover {
+                width: 100%;
+            }
+            .sidebar .logo { display: none; }
+            .sidebar nav {
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: space-around;
+                width: 100%;
+            }
+            .sidebar nav a {
+                padding: 10px 15px;
+                border-left: none;
+                border-bottom: 4px solid transparent;
+            }
+            .sidebar nav a i { margin-right: 0; }
+            .sidebar nav a span { display: none; }
+            .sidebar nav a.active { border-bottom-color: #FFFFFF; }
+            .sidebar nav a:hover { border-bottom-color: white; background-color: var(--hover-color); }
+
+            .search-bar-advisors input[type="text"],
+            .search-bar-advisors select {
+                max-width: 100%;
+                font-size: 0.95rem;
+                padding: 10px 15px;
+            }
+
+            .advisor-card img {
+                width: 100px;
+                height: 100px;
+            }
+            .advisor-card h3 {
+                font-size: 1.3rem;
+            }
+            .advisor-card .career-title {
+                font-size: 0.9rem;
+            }
+            .advisor-card p {
+                font-size: 0.85rem;
+            }
+            .advisor-detail-content {
+                padding: 20px;
+                max-width: 95%;
+            }
+            .advisor-detail-header img {
+                width: 120px;
+                height: 120px;
+            }
+            .advisor-detail-header h3 {
+                font-size: 2rem;
+            }
+            .advisor-detail-header .career-title-detail {
+                font-size: 1.2rem;
+            }
+            .chat-input-area button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
